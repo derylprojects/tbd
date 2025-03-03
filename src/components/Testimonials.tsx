@@ -2,17 +2,17 @@ export default function Testimonials() {
     const testimonials = [
       {
         quote: "PT. Tahta Berkat Dunia consistently delivers chilies of exceptional quality. Their product grading and competitive pricing have made them our preferred supplier for three years running.",
-        author: "John Doe",
+        author: "Colin Brown",
         position: "Purchasing Manager"
       },
       {
         quote: "We've worked with several chili exporters, but none match the reliability and quality control standards of PT. Tahta Berkat Dunia. Their logistics team ensures timely deliveries even during challenging seasons.",
-        author: "Sarah Johnson",
+        author: "Katherine Clarkson",
         position: "Supply Chain Director"
       },
       {
         quote: "The team at PT. Tahta Berkat Dunia understands our specific requirements and consistently meets our quality standards. Their attention to detail and customer service is outstanding.",
-        author: "Michael Chen",
+        author: "Kosma Janowiak",
         position: "CEO"
       }
     ];

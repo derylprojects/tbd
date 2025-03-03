@@ -7,7 +7,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-white mb-4">PT. Tahta Berkat Dunia</h3>
             <p className="mb-4">Premium Indonesian Chili Exports at Competitive Prices</p>
             <p className="mb-2">Jl. Lalu Mesir GG. Damai 2 No. 1</p>
-            <p className="mb-2">Email: info@tahtaberkatdunia.com</p>
+            <p className="mb-2">Email: info@tahtaberkatdunia.me</p>
             <p>Phone: +62 812 3456 7890</p>
           </div>
           
