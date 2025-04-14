@@ -1,66 +1,109 @@
-export default function Products() {
-    const products = [
-      {
-        name: "Red Cayenne Chili",
-        description: "Medium heat level, perfect for various culinary applications.",
-        image: "/images/cayenne.jpg"
-      },
-      {
-        name: "Bird's Eye Chili",
-        description: "Small but intensely hot, ideal for spicy Asian dishes.",
-        image: "/images/birds-eye.jpg"
-      },
-      {
-        name: "Jalapeño Chili",
-        description: "Mild to medium heat, versatile for salsas and stuffing.",
-        image: "/images/jalapeno.jpg"
-      },
-      {
-        name: "Dried Chili Flakes",
-        description: "Convenient seasoning for adding heat to any dish.",
-        image: "/images/chili-flakes.jpg"
-      }
-    ];
-  
-    return (
-      <section id="products" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Premium Products
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              We offer a diverse range of high-quality chili varieties to meet all your culinary and manufacturing needs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <div className="h-64 overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="w-full h-full object-cover transition duration-300 hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-xl text-gray-800 mb-2">{product.name}</h3>
-                  <p className="text-gray-600">{product.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <a 
-              href="#contact" 
-              className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition duration-300"
-            >
-              Request Product Details
-            </a>
-          </div>
-        </div>
-      </section>
-    );
+"use client";
+
+import { useState } from 'react';
+
+// Sample product data - you can easily add more products as needed
+const initialProducts = [
+  {
+    id: 1,
+    name: "Indonesian Cinnamon",
+    description: "Premium grade cinnamon sticks from Sumatra with a sweet, warm aroma and rich flavor.",
+    category: "Bark Spices"
+  },
+  {
+    id: 2,
+    name: "Lampung Black Pepper",
+    description: "Intensely aromatic black pepper from Lampung, known for its strong heat and complex flavor profile.",
+    category: "Pepper"
+  },
+  {
+    id: 3,
+    name: "Javanese Nutmeg",
+    description: "Whole nutmeg seeds with a rich, warm aroma and slightly sweet flavor.",
+    category: "Seeds"
+  },
+  {
+    id: 4,
+    name: "Maluku Cloves",
+    description: "Hand-selected whole cloves from the Maluku Islands with intense aroma and flavor.",
+    category: "Flower Buds"
+  },
+  {
+    id: 5,
+    name: "Indonesian Turmeric",
+    description: "Bright orange turmeric with powerful earthy aroma and distinctive flavor.",
+    category: "Roots"
+  },
+  {
+    id: 6,
+    name: "Vanilla Beans",
+    description: "High-quality vanilla beans from Java with a rich, sweet aroma.",
+    category: "Pods"
   }
+];
+
+const Products = () => {
+  const [products] = useState(initialProducts);
+  const [filter, setFilter] = useState('All');
+  
+  const categories = ['All', ...new Set(products.map(product => product.category))];
+  
+  const filteredProducts = filter === 'All' 
+    ? products 
+    : products.filter(product => product.category === filter);
+
+  return (
+    <section id="products" className="py-16 bg-emerald-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Our Products</h2>
+        <p className="text-lg text-gray-700 text-center max-w-2xl mx-auto mb-10">
+          We export a wide variety of premium Indonesian spices to meet your specific requirements.
+        </p>
+        
+        <div className="mb-8 flex flex-wrap justify-center gap-2">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setFilter(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium ${
+                filter === category 
+                  ? 'bg-emerald-600 text-white' 
+                  : 'bg-white text-gray-700 hover:bg-emerald-100'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.map(product => (
+            <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="h-48 bg-emerald-100 flex items-center justify-center">
+                <div className="text-emerald-800 font-medium text-lg">Product Image</div>
+              </div>
+              <div className="p-6">
+                <span className="text-xs font-semibold text-emerald-600 uppercase tracking-wide">{product.category}</span>
+                <h3 className="text-xl font-semibold mt-2">{product.name}</h3>
+                <p className="mt-2 text-gray-600">{product.description}</p>
+                <button className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700 transition-colors">
+                  Inquire Now
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-10">
+          <p className="text-lg font-medium">Don't see what you're looking for?</p>
+          <p className="text-gray-700 mb-6">We can source virtually any spice available in Indonesia.</p>
+          <a href="#contact" className="px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors inline-block">
+            Contact Us For Custom Orders
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Products;

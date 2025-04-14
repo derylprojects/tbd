@@ -57,3 +57,14 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+/* Custom animations */
+@keyframes morphSymbol {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.morph-animation {
+  animation: morphSymbol 2s infinite;
+}

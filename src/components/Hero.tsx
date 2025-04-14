@@ -1,39 +1,49 @@
-import Link from 'next/link';
+"use client";
 
-export default function Hero() {
+import { useState, useEffect } from 'react';
+
+const Hero = () => {
+  const [symbol, setSymbol] = useState('❌');
+  
+  useEffect(() => {
+    const symbols = ['❌', '❤️', '❌'];
+    let currentIndex = 0;
+    
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % symbols.length;
+      setSymbol(symbols[currentIndex]);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ 
-          backgroundImage: "url('/images/hero-chili.jpg')", 
-        }}
-      ></div>
-      
-      <div className="container mx-auto px-6 relative z-20 text-white text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
-          PT. Tahta Berkat Dunia
+    <div className="bg-gradient-to-b from-emerald-50 to-white py-16 md:py-24">
+      <div className="container mx-auto px-4 flex flex-col items-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-center mb-6">
+          TBD <span className="inline-block transform transition-all duration-500 w-12 text-center">{symbol}</span> me
         </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-          Premium Indonesian Chili Exports at Competitive Prices
+        <p className="text-lg md:text-xl text-gray-700 text-center max-w-2xl mb-8">
+          Exporting the finest Indonesian spices to the world. 
+          Premium quality, ethically sourced, delivered with care.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link 
-            href="#contact" 
-            className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition duration-300"
-          >
-            Request a Quote
-          </Link>
-          <Link 
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a 
             href="#products" 
-            className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white hover:text-red-600 text-white font-medium rounded-md transition duration-300"
+            className="px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors text-center"
           >
-            Explore Products
-          </Link>
+            Explore Our Products
+          </a>
+          <a 
+            href="#contact" 
+            className="px-6 py-3 bg-white text-emerald-600 border border-emerald-600 rounded-lg font-medium hover:bg-emerald-50 transition-colors text-center"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Hero;
