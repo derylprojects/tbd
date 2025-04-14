@@ -10,7 +10,7 @@ const AboutUs = () => {
               PT Tahta Berkat Dunia (TBD) is a premier Indonesian spice export company dedicated to bringing the authentic flavors of Indonesia to the global market.
             </p>
             <p className="text-lg text-gray-700 mb-4">
-              Our name "TBD" has a special meaning to us - just as in mathematics where a dot (.) represents multiplication (×), we multiply value through our connections, creating heart-filled relationships with partners worldwide.
+              Our name &quot;tahtaberkatdunia.me&quot; has a special meaning to us - just as in mathematics where a dot (.) represents multiplication (×), we multiply value through our connections, creating heart-filled relationships with partners worldwide.
             </p>
             <p className="text-lg text-gray-700">
               Based in Indonesia, we specialize in sourcing and exporting the highest quality spices, connecting local farmers with international importers and bringing the rich flavors of Indonesia to kitchens across the globe.

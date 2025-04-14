@@ -95,7 +95,7 @@ const Products = () => {
         </div>
         
         <div className="text-center mt-10">
-          <p className="text-lg font-medium">Don't see what you're looking for?</p>
+          <p className="text-lg font-medium">Don&apos;t see what you&apos;re looking for?</p>
           <p className="text-gray-700 mb-6">We can source virtually any spice available in Indonesia.</p>
           <a href="#contact" className="px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors inline-block">
             Contact Us For Custom Orders

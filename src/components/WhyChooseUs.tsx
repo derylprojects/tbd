@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
           <div className="mt-12 bg-emerald-50 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-bold mb-4">Our Commitment</h3>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              At PT Tahta Berkat Dunia, we're committed to building relationships that last. 
+              At PT Tahta Berkat Dunia, we&apos;re committed to building relationships that last. 
               Just as our name implies, we aim to multiply value (×) through heart-filled (❤️) connections, 
               bringing the best of Indonesia to the world while supporting local communities.
             </p>
