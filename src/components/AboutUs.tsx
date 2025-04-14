@@ -19,14 +19,14 @@ const AboutUs = () => {
           
           <div className="bg-emerald-50 p-8 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Our Vision</h3>
-            <p className="text-gray-700 mb-6">To be the most trusted source of premium Indonesian spices in the global market.</p>
+            <p className="text-gray-700 mb-6">To be a global beacon of excellence in the spice and herb industry, enriching lives by connecting the world to Indonesia&apos;s natural treasures while fostering sustainable growth and meaningful impact for communities.</p>
             
             <h3 className="text-xl font-semibold mb-4">Our Mission</h3>
             <ul className="space-y-2 text-gray-700">
-              <li>• Source the highest quality spices from Indonesian farmers</li>
-              <li>• Ensure fair trade practices and sustainable sourcing</li>
-              <li>• Deliver exceptional products with outstanding service</li>
-              <li>• Build lasting relationships with our partners worldwide</li>
+              <li>• Providing the highest quality Indonesian herbs and spices</li>
+              <li>• Uplifting farmers and rural communities</li>
+              <li>• Promoting Fair Trade Practices</li>
+              <li>• Leaving positive imprints on the world</li>
             </ul>
           </div>
         </div>

@@ -140,7 +140,7 @@ const ContactForm = () => {
               <div className="space-y-4">
                 <div>
                   <p className="font-medium text-gray-700">Address:</p>
-                  <p className="text-gray-600">Jakarta, Indonesia</p>
+                  <p className="text-gray-600">Lalu Mesir Street, Mataram, NTB, Indonesia</p>
                 </div>
                 <div>
                   <p className="font-medium text-gray-700">Email:</p>
@@ -148,7 +148,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <p className="font-medium text-gray-700">Phone:</p>
-                  <p className="text-gray-600">+62 XXX XXX XXXX</p>
+                  <p className="text-gray-600">+62 896-2964-6171 (Whatsapp &amp; WeChat</p>
                 </div>
                 <div>
                   <p className="font-medium text-gray-700">Website:</p>
@@ -174,7 +174,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <p className="mt-4 text-gray-600 italic">
-                (Indonesia Western Indonesia Time - WIB)
+                (Singapore Time - UTC +8)
               </p>
             </div>
           </div>

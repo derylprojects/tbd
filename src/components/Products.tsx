@@ -2,54 +2,25 @@
 
 import { useState } from 'react';
 
-// Sample product data - you can easily add more products as needed
+// Sample product data - now with image support
 const initialProducts = [
   {
     id: 1,
-    name: "Indonesian Cinnamon",
-    description: "Premium grade cinnamon sticks from Sumatra with a sweet, warm aroma and rich flavor.",
-    category: "Bark Spices"
+    name: "Indonesian Moringa Leave Powder",
+    description: "Premium grade Moringa Leaves from Nusa Tenggara Archipelago.",
+    category: "Leaves",
+    image: "/moringa.jpg", // Replace with actual image URL
   },
-  {
-    id: 2,
-    name: "Lampung Black Pepper",
-    description: "Intensely aromatic black pepper from Lampung, known for its strong heat and complex flavor profile.",
-    category: "Pepper"
-  },
-  {
-    id: 3,
-    name: "Javanese Nutmeg",
-    description: "Whole nutmeg seeds with a rich, warm aroma and slightly sweet flavor.",
-    category: "Seeds"
-  },
-  {
-    id: 4,
-    name: "Maluku Cloves",
-    description: "Hand-selected whole cloves from the Maluku Islands with intense aroma and flavor.",
-    category: "Flower Buds"
-  },
-  {
-    id: 5,
-    name: "Indonesian Turmeric",
-    description: "Bright orange turmeric with powerful earthy aroma and distinctive flavor.",
-    category: "Roots"
-  },
-  {
-    id: 6,
-    name: "Vanilla Beans",
-    description: "High-quality vanilla beans from Java with a rich, sweet aroma.",
-    category: "Pods"
-  }
 ];
 
 const Products = () => {
   const [products] = useState(initialProducts);
   const [filter, setFilter] = useState('All');
-  
+
   const categories = ['All', ...new Set(products.map(product => product.category))];
-  
-  const filteredProducts = filter === 'All' 
-    ? products 
+
+  const filteredProducts = filter === 'All'
+    ? products
     : products.filter(product => product.category === filter);
 
   return (
@@ -59,15 +30,15 @@ const Products = () => {
         <p className="text-lg text-gray-700 text-center max-w-2xl mx-auto mb-10">
           We export a wide variety of premium Indonesian spices to meet your specific requirements.
         </p>
-        
+
         <div className="mb-8 flex flex-wrap justify-center gap-2">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setFilter(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium ${
-                filter === category 
-                  ? 'bg-emerald-600 text-white' 
+                filter === category
+                  ? 'bg-emerald-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-emerald-100'
               }`}
             >
@@ -75,12 +46,20 @@ const Products = () => {
             </button>
           ))}
         </div>
-        
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map(product => (
             <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <div className="h-48 bg-emerald-100 flex items-center justify-center">
-                <div className="text-emerald-800 font-medium text-lg">Product Image</div>
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <div className="text-emerald-800 font-medium text-lg">Product Image</div>
+                )}
               </div>
               <div className="p-6">
                 <span className="text-xs font-semibold text-emerald-600 uppercase tracking-wide">{product.category}</span>
@@ -93,7 +72,7 @@ const Products = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-10">
           <p className="text-lg font-medium">Don&apos;t see what you&apos;re looking for?</p>
           <p className="text-gray-700 mb-6">We can source virtually any spice available in Indonesia.</p>
